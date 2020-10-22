@@ -7,6 +7,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       html: "<p>This is the initial content of the editor</p>",
+      title: "Template",
+      default: true,
+      settings: [
+        {
+          key: 'yo',
+          name: 'yo',
+          value: 'This is a YO Comment'
+        },
+        {
+          key: 'hey',
+          name: 'hey',
+          value: 'This is a HEY HEY HEYEAYAYAYAYA'
+        },
+        {
+          key: 'hiiiiii',
+          name: 'hi',
+          value: "HEYYYYYY What's up!"
+        }
+      ]
     };
   }
 
@@ -19,16 +38,12 @@ class App extends React.Component {
   };
 
   handleSubmit = async () => {
-    const { html } = this.state;
-    console.log("Submitted", html);
     const res = await axios.post(
       "http://localhost:3000/api/template/add",
-      {
-        html,
-      },
+      this.state,
       {
         headers: {
-          'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`,
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
         },
       }
     );
@@ -50,6 +65,7 @@ class App extends React.Component {
             ],
             toolbar:
               "undo redo formatselect bold italic backcolor  alignleft aligncenter alignright alignjustify bullist numlist outdent indent removeformat help",
+            content_style: "body { margin: 1rem auto; max-width: 900px; }",
           }}
           onEditorChange={this.handleEditorChange}
         />
