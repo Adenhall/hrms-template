@@ -1,6 +1,7 @@
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
+import { Button } from "@material-ui/core";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,21 +12,21 @@ class App extends React.Component {
       default: true,
       settings: [
         {
-          key: 'yo',
-          name: 'yo',
-          value: 'This is a YO Comment'
+          key: "yo",
+          name: "yo",
+          value: "This is a YO Comment",
         },
         {
-          key: 'hey',
-          name: 'hey',
-          value: 'This is a HEY HEY HEYEAYAYAYAYA'
+          key: "hey",
+          name: "hey",
+          value: "This is a HEY HEY HEYEAYAYAYAYA",
         },
         {
-          key: 'hiiiiii',
-          name: 'hi',
-          value: "HEYYYYYY What's up!"
-        }
-      ]
+          key: "hiiiiii",
+          name: "hi",
+          value: "HEYYYYYY What's up!",
+        },
+      ],
     };
   }
 
@@ -52,7 +53,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div
+      >
         <Editor
           initialValue={this.state.html}
           init={{
@@ -66,11 +68,23 @@ class App extends React.Component {
             toolbar:
               "undo redo formatselect bold italic backcolor  alignleft aligncenter alignright alignjustify bullist numlist outdent indent removeformat help",
             content_style: "body { margin: 1rem auto; max-width: 900px; }",
+            setup: function (editor) {
+              editor.on('mouseup', function (e) {
+                console.log(window.getSelection());
+              });
+            }
           }}
           onEditorChange={this.handleEditorChange}
+          
         />
-        <button onClick={this.handleSubmit}>Click me to save</button>
-      </>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.handleSubmit}
+        >
+          Click me to save
+        </Button>
+      </div>
     );
   }
 }
