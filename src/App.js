@@ -9,23 +9,95 @@ class App extends React.Component {
     this.state = {
       html: "<p>This is the initial content of the editor</p>",
       title: "Template",
-      default: true,
+      // default: true,
+      fullname: "AAAAAAAAAAAAAA",
+      signature: "",
       settings: [
         {
-          key: "yo",
-          name: "yo",
-          value: "This is a YO Comment",
+          key: "companyName",
+          description: "Company name",
+          value: "Terralogic",
         },
         {
-          key: "hey",
-          name: "hey",
-          value: "This is a HEY HEY HEYEAYAYAYAYA",
+          key: "candidateName",
+          description: "Candidate name",
+          value: "Lam Nguyen",
         },
         {
-          key: "hiiiiii",
-          name: "hi",
-          value: "HEYYYYYY What's up!",
+          key: "jobTitle",
+          description: "Job title",
+          value: "Software Engineer",
         },
+        {
+          key: "workingTime",
+          description: "Mention working days and hours.",
+          value: new Date().toDateString()
+        },
+        {
+          key: "departmentName",
+          description: "Department name",
+          value: "Engineer"
+        },
+        {
+          key: "salary",
+          description: "Adjust salary",
+          value: "$100000"
+        },
+        {
+          key: "bonus",
+          description: "Bonus programs, if applicable",
+          value: "stock options"
+        },
+        {
+          key: "benefits",
+          description: "Include benefits",
+          value: "lunch allowance, OT allowance"
+        },
+        {
+          key: "vacationDays",
+          description: "Number of paid vacation days",
+          value: "6"
+        },
+        {
+          key: "startingDate",
+          description: "Starting date",
+          value: new Date().toDateString()
+        },
+        {
+          key: "contractDuration",
+          description: "Contract duration",
+          value: "1 year"
+        },
+        {
+          key: "policies",
+          description: "Agreements, confidentiality, nondisclosure and noncompete",
+          value: "copywrite laws"
+        },
+        {
+          Key: "responseDate",
+          description: "Response date",
+          value: new Date().toDateString()
+        },
+        {
+          key: "managerName",
+          description: "ManagerName",
+          value: "HR manager"
+        },
+        {
+          key: "contactDetails",
+          description: "Contact details",
+          value: "admin-sa@terralogic.com"
+        },
+        {
+          key: "fullname",
+          description: "Candidate full name",
+          value: "___________"
+        },
+        {
+          key: "signature" ,
+          description: "Candidate signature",
+          value: "______________"
+        }
       ],
     };
   }
