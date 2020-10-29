@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       html: "<p>This is the initial content of the editor</p>",
       title: "Template",
-      // default: true,
+      default: true,
       fullname: "AAAAAAAAAAAAAA",
       signature: "",
       settings: [
@@ -112,11 +112,12 @@ class App extends React.Component {
 
   handleSubmit = async () => {
     const res = await axios.post(
-      "http://localhost:3000/api/template/add",
+      'http://api-stghrms.paxanimi.ai/api/template/add',
       this.state,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+          'Access-Control-Allow-Origin': '*'
         },
       }
     );
