@@ -7,7 +7,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      html: "<p>This is the initial content of the editor</p>",
+      html: `<p>Email subject line: <span class="companyName">[Company_Name]</span> Job Offer / Job Offer from <span class="companyName">[Company_Name]</span></p>
+      <p>Dear <span class="candidateName">[Candidate_Name]</span>,</p>
+      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <span class="jobTitle">[Job_title]</span>. This is a full&nbsp;time position <span class="workingTime">[Working_Time]</span>. You will be reporting to the head of the <span class="departmentName">[Department]</span> department. [<em>If applicable: Please note that <span class="companyName">[Company_Name]</span> is an at-will employer. That means that either you or <span class="companyName">[Company_Name]</span> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
+      <p>We will be offering you an annual gross salary of <span class="salary">[$X]</span> and <span class="bonus">[Other_Bonus]</span> You will also have <span class="benefits">[Other_Benefits]</span> and <span class="vacationDays">[Vacation_Days]</span> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
+      <p>Your expected starting date is <span class="startingDate">[Starting_Date]</span>. You will be asked to sign a contract of <span class="contractDuration">[Contract_Duration]</span> and <span class="policies">[Policies]</span> at the beginning of your employment.</p>
+      <p>We would like to have your response by <span class="responseDate">[date]</span>. In the meantime, please feel free to contact me or <span class="managerName">[Manager]</span> via email or phone on <span class="contactDetails">[Contact_Details]</span>, should you have any questions.</p>
+      <p>We are all looking forward to having you on our team.</p>
+      <p>Best regards,</p>
+      <p><span class="fullname">[Candidate_Name]</span></p>`,
       title: "Template",
       default: true,
       fullname: "AAAAAAAAAAAAAA",
@@ -31,73 +39,74 @@ class App extends React.Component {
         {
           key: "workingTime",
           description: "Mention working days and hours.",
-          value: new Date().toDateString()
+          value: new Date().toDateString(),
         },
         {
           key: "departmentName",
           description: "Department name",
-          value: "Engineer"
+          value: "Engineer",
         },
         {
           key: "salary",
           description: "Adjust salary",
-          value: "$100000"
+          value: "$100000",
         },
         {
           key: "bonus",
           description: "Bonus programs, if applicable",
-          value: "stock options"
+          value: "stock options",
         },
         {
           key: "benefits",
           description: "Include benefits",
-          value: "lunch allowance, OT allowance"
+          value: "lunch allowance, OT allowance",
         },
         {
           key: "vacationDays",
           description: "Number of paid vacation days",
-          value: "6"
+          value: "6",
         },
         {
           key: "startingDate",
           description: "Starting date",
-          value: new Date().toDateString()
+          value: "",
         },
         {
           key: "contractDuration",
           description: "Contract duration",
-          value: "1 year"
+          value: "1 year",
         },
         {
           key: "policies",
-          description: "Agreements, confidentiality, nondisclosure and noncompete",
-          value: "copywrite laws"
+          description:
+            "Agreements, confidentiality, nondisclosure and noncompete",
+          value: "copywrite laws",
         },
         {
-          Key: "responseDate",
+          key: "responseDate",
           description: "Response date",
-          value: new Date().toDateString()
+          value: "",
         },
         {
           key: "managerName",
           description: "ManagerName",
-          value: "HR manager"
+          value: "HR manager",
         },
         {
           key: "contactDetails",
           description: "Contact details",
-          value: "admin-sa@terralogic.com"
+          value: "admin-sa@terralogic.com",
         },
         {
           key: "fullname",
           description: "Candidate full name",
-          value: "___________"
+          value: "___________",
         },
         {
-          key: "signature" ,
+          key: "signature",
           description: "Candidate signature",
-          value: "______________"
-        }
+          value: "______________",
+        },
       ],
     };
   }
@@ -111,13 +120,14 @@ class App extends React.Component {
   };
 
   handleSubmit = async () => {
+    console.log(this.state);
     const res = await axios.post(
-      'http://api-stghrms.paxanimi.ai/api/template/add',
+      "http://localhost:3000/api/template/add",
       this.state,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*",
         },
       }
     );
@@ -126,8 +136,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div
-      >
+      <div>
         <Editor
           initialValue={this.state.html}
           init={{
@@ -142,13 +151,12 @@ class App extends React.Component {
               "undo redo formatselect bold italic backcolor  alignleft aligncenter alignright alignjustify bullist numlist outdent indent removeformat help",
             content_style: "body { margin: 1rem auto; max-width: 900px; }",
             setup: function (editor) {
-              editor.on('mouseup', function (e) {
+              editor.on("mouseup", function (e) {
                 console.log(window.getSelection());
               });
-            }
+            },
           }}
           onEditorChange={this.handleEditorChange}
-          
         />
         <Button
           variant="contained"
