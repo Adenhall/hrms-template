@@ -7,105 +7,123 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      html: `<p>Email subject line: <span class="companyName">[Company_Name]</span> Job Offer / Job Offer from <span class="companyName">[Company_Name]</span></p>
-      <p>Dear <span class="candidateName">[Candidate_Name]</span>,</p>
-      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <span class="jobTitle">[Job_title]</span>. This is a full&nbsp;time position <span class="workingTime">[Working_Time]</span>. You will be reporting to the head of the <span class="departmentName">[Department]</span> department. [<em>If applicable: Please note that <span class="companyName">[Company_Name]</span> is an at-will employer. That means that either you or <span class="companyName">[Company_Name]</span> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
-      <p>We will be offering you an annual gross salary of <span class="salary">[$X]</span> and <span class="bonus">[Other_Bonus]</span> You will also have <span class="benefits">[Other_Benefits]</span> and <span class="vacationDays">[Vacation_Days]</span> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
-      <p>Your expected starting date is <span class="startingDate">[Starting_Date]</span>. You will be asked to sign a contract of <span class="contractDuration">[Contract_Duration]</span> and <span class="policies">[Policies]</span> at the beginning of your employment.</p>
-      <p>We would like to have your response by <span class="responseDate">[date]</span>. In the meantime, please feel free to contact me or <span class="managerName">[Manager]</span> via email or phone on <span class="contactDetails">[Contact_Details]</span>, should you have any questions.</p>
+      html: `<p>Email subject line: <strong><span class="companyName">[Company_Name]</span></strong> Job Offer / Job Offer from <strong><span class="companyName">[Company_Name]</span></strong></p>
+      <p>Dear <strong><span class="candidateName">[Candidate_Name]</span></strong>,</p>
+      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a full&nbsp;time position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="departmentName">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
+      <p>We will be offering you an annual gross salary of <strong><span class="salary">[$X]</span></strong> and <strong><span class="bonus">[Other_Bonus]</span></strong> You will also have <strong><span class="benefits">[Other_Benefits]</span></strong> and <strong><span class="vacationDays">[Vacation_Days]</span></strong> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
+      <p>Your expected starting date is <strong><span class="startingDate">[Starting_Date]</span></strong>. You will be asked to sign a contract of <strong><span class="contractDuration">[Contract_Duration]</span></strong> and <strong><span class="policies">[Policies]</span></strong> at the beginning of your employment.</p>
+      <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="managerName">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
       <p>We are all looking forward to having you on our team.</p>
       <p>Best regards,</p>
-      <p><span class="fullname">[Candidate_Name]</span></p>`,
-      title: "Template",
+      <p><strong><span class="fullname">[Candidate_Full_Name]</span></strong></p>
+      <div class="signature">&nbsp;</div>`,
+      title: "Offer letter",
       default: true,
-      fullname: "AAAAAAAAAAAAAA",
+      fullname: "",
       signature: "",
       settings: [
         {
           key: "companyName",
           description: "Company name",
-          value: "Terralogic",
+          value: "[Company_Name]",
+          isEdited: true,
         },
         {
           key: "candidateName",
           description: "Candidate name",
-          value: "Lam Nguyen",
+          value: "[Candidate_Name]",
+          isEdited: true,
         },
         {
           key: "jobTitle",
           description: "Job title",
-          value: "Software Engineer",
+          value: "[Job_title]",
+          isEdited: true,
         },
         {
           key: "workingTime",
           description: "Mention working days and hours.",
-          value: new Date().toDateString(),
+          value: "[Working_Time]",
+          isEdited: true,
         },
         {
           key: "departmentName",
           description: "Department name",
-          value: "Engineer",
+          value: "[Department]",
+          isEdited: true,
         },
         {
           key: "salary",
           description: "Adjust salary",
-          value: "$100000",
+          value: "[$X]",
+          isEdited: true,
         },
         {
           key: "bonus",
           description: "Bonus programs, if applicable",
-          value: "stock options",
+          value: "[Other_Bonus]",
+          isEdited: true,
         },
         {
           key: "benefits",
           description: "Include benefits",
-          value: "lunch allowance, OT allowance",
+          value: "[Other_Benefits]",
+          isEdited: true,
         },
         {
           key: "vacationDays",
           description: "Number of paid vacation days",
-          value: "6",
+          value: "[Vacation_Days]",
+          isEdited: true,
         },
         {
           key: "startingDate",
           description: "Starting date",
-          value: "",
+          value: "[Starting_Date]",
+          isEdited: true,
         },
         {
           key: "contractDuration",
           description: "Contract duration",
-          value: "1 year",
+          value: "[Contract_Duration]",
+          isEdited: true,
         },
         {
           key: "policies",
           description:
             "Agreements, confidentiality, nondisclosure and noncompete",
-          value: "copywrite laws",
+          value: "[Policies]",
+          isEdited: true,
         },
         {
           key: "responseDate",
           description: "Response date",
-          value: "",
+          value: "[date]",
+          isEdited: true,
         },
         {
           key: "managerName",
           description: "ManagerName",
-          value: "HR manager",
+          value: "[Manager]",
+          isEdited: true,
         },
         {
           key: "contactDetails",
           description: "Contact details",
-          value: "admin-sa@terralogic.com",
+          value: "[Contact_Details]",
+          isEdited: true,
         },
         {
           key: "fullname",
           description: "Candidate full name",
-          value: "___________",
+          value: "[Candidate_Full_Name]",
+          isEdited: true,
         },
         {
           key: "signature",
           description: "Candidate signature",
           value: "______________",
+          isEdited: true,
         },
       ],
     };
@@ -122,7 +140,7 @@ class App extends React.Component {
   handleSubmit = async () => {
     console.log(this.state);
     const res = await axios.post(
-      "http://localhost:3000/api/template/add",
+      "http://api-stghrms.paxanimi.ai/api/template/add",
       this.state,
       {
         headers: {
