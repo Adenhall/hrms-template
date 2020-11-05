@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       html: `<p>Email subject line: <strong><span class="companyName">[Company_Name]</span></strong> Job Offer / Job Offer from <strong><span class="companyName">[Company_Name]</span></strong></p>
       <p>Dear <strong><span class="candidateName">[Candidate_Name]</span></strong>,</p>
-      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a full&nbsp;time position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="departmentName">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
+      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a <strong><span id="classification">[Full/ Part time]</span></strong> position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="departmentName">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
       <p>We will be offering you an annual gross salary of <strong><span class="salary">[$X]</span></strong> and <strong><span class="bonus">[Other_Bonus]</span></strong> You will also have <strong><span class="benefits">[Other_Benefits]</span></strong> and <strong><span class="vacationDays">[Vacation_Days]</span></strong> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
       <p>Your expected starting date is <strong><span class="startingDate">[Starting_Date]</span></strong>. You will be asked to sign a contract of <strong><span class="contractDuration">[Contract_Duration]</span></strong> and <strong><span class="policies">[Policies]</span></strong> at the beginning of your employment.</p>
       <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="managerName">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
@@ -21,7 +21,8 @@ class App extends React.Component {
       default: true,
       fullname: "",
       signature: "",
-      thumbnail: "http://api-stghrms.paxanimi.ai/api/images/5fa26117edc16635fad004b8/NoPath%20-%20Copy%20(12)@3x.png",
+      thumbnail:
+        "http://api-stghrms.paxanimi.ai/api/attachments/5fa37887edc16635fad0051c/NoPath%20-%20Copy%20(12)@3x.png",
       settings: [
         {
           key: "companyName",
@@ -30,7 +31,7 @@ class App extends React.Component {
           isEdited: false,
         },
         {
-          key: "candidateName",
+          key: "fullname",
           description: "Candidate name",
           value: "[Candidate_Name]",
           isEdited: false,
@@ -42,13 +43,19 @@ class App extends React.Component {
           isEdited: false,
         },
         {
+          key: "classification",
+          description: "Employment Type (Full/ Part time)",
+          value: "[Employment_Type]",
+          isEdited: false,
+        },
+        {
           key: "workingTime",
           description: "Mention working days and hours.",
           value: "[Working_Time]",
           isEdited: false,
         },
         {
-          key: "departmentName",
+          key: "department",
           description: "Department name",
           value: "[Department]",
           isEdited: false,
@@ -103,8 +110,8 @@ class App extends React.Component {
           isEdited: false,
         },
         {
-          key: "managerName",
-          description: "ManagerName",
+          key: "reportManager",
+          description: "Manager Name",
           value: "[Manager]",
           isEdited: false,
         },
@@ -114,18 +121,18 @@ class App extends React.Component {
           value: "[Contact_Details]",
           isEdited: false,
         },
-        {
-          key: "fullname",
-          description: "Candidate full name",
-          value: "[Candidate_Full_Name]",
-          isEdited: false,
-        },
-        {
-          key: "signature",
-          description: "Candidate signature",
-          value: "______________",
-          isEdited: false,
-        },
+        // {
+        //   key: "fullname",
+        //   description: "Candidate full name",
+        //   value: "[Candidate_Full_Name]",
+        //   isEdited: false,
+        // },
+        // {
+        //   key: "signature",
+        //   description: "Candidate signature",
+        //   value: "______________",
+        //   isEdited: false,
+        // },
       ],
     };
   }
