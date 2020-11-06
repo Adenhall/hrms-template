@@ -8,15 +8,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       html: `<p>Email subject line: <strong><span class="companyName">[Company_Name]</span></strong> Job Offer / Job Offer from <strong><span class="companyName">[Company_Name]</span></strong></p>
-      <p>Dear <strong><span class="candidateName">[Candidate_Name]</span></strong>,</p>
-      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a <strong><span id="classification">[Full/ Part time]</span></strong> position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="departmentName">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
+      <p>Dear <strong><span class="fullname">[Candidate_Name]</span></strong>,</p>
+      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a <strong><span class="classification">[Full/ Part time]</span></strong> position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="department">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
       <p>We will be offering you an annual gross salary of <strong><span class="salary">[$X]</span></strong> and <strong><span class="bonus">[Other_Bonus]</span></strong> You will also have <strong><span class="benefits">[Other_Benefits]</span></strong> and <strong><span class="vacationDays">[Vacation_Days]</span></strong> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
       <p>Your expected starting date is <strong><span class="startingDate">[Starting_Date]</span></strong>. You will be asked to sign a contract of <strong><span class="contractDuration">[Contract_Duration]</span></strong> and <strong><span class="policies">[Policies]</span></strong> at the beginning of your employment.</p>
-      <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="managerName">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
+      <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="reportManager">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
       <p>We are all looking forward to having you on our team.</p>
       <p>Best regards,</p>
-      <p><strong><span class="fullname">[Candidate_Full_Name]</span></strong></p>
-      <div class="signature">&nbsp;</div>`,
+      <p><strong><span id="fullname">[Candidate_Full_Name]</span></strong></p>
+      <div id="signature">&nbsp;</div>`,
       title: "Offer letter",
       default: true,
       fullname: "",
