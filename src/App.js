@@ -15,10 +15,12 @@ class App extends React.Component {
       <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="reportManager">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
       <p>We are all looking forward to having you on our team.</p>
       <p>Best regards,</p>
-      <p><strong><span id="fullname">[Candidate_Full_Name]</span></strong></p>
+      <p><strong><span class="companyName">[Company_Name]</span></strong></p>
+      <p><strong><span id="fullname">[Template_User_Id]</span></strong></p>
       <div id="signature">&nbsp;</div>`,
       title: "Offer letter",
       default: true,
+      type: "ON_BOARDING",
       fullname: "",
       signature: "",
       thumbnail:
@@ -165,6 +167,7 @@ class App extends React.Component {
       <div>
         <Editor
           initialValue={this.state.html}
+          apiKey={process.env.REACT_APP_TINYMCE_KEY}
           init={{
             height: 500,
             menubar: true,
@@ -174,12 +177,13 @@ class App extends React.Component {
               "insertdatetime media table paste code help wordcount",
             ],
             toolbar:
-              "undo redo formatselect bold italic backcolor  alignleft aligncenter alignright alignjustify bullist numlist outdent indent removeformat help",
+              "undo redo formatselect bold italic backcolor  alignleft aligncenter alignright alignjustify bullist numlist outdent indent removeformat help customPlugin",
             content_style: "body { margin: 1rem auto; max-width: 900px; }",
             setup: function (editor) {
-              editor.on("mouseup", function (e) {
-                console.log(window.getSelection());
-              });
+              // console.log(editor);
+            },
+            external_plugins: {
+              "customPlugin": './',
             },
           }}
           onEditorChange={this.handleEditorChange}
