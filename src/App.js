@@ -7,135 +7,95 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      html: `<p>Email subject line: <strong><span class="companyName">[Company_Name]</span></strong> Job Offer / Job Offer from <strong><span class="companyName">[Company_Name]</span></strong></p>
-      <p>Dear <strong><span class="fullname">[Candidate_Name]</span></strong>,</p>
-      <p>We were all very excited to meet and get to know you over the past few days. We have been impressed with your background and would like to formally offer you the position of <strong><span class="jobTitle">[Job_title]</span></strong>. This is a <strong><span class="classification">[Full/ Part time]</span></strong> position <strong><span class="workingTime">[Working_Time]</span></strong>. You will be reporting to the head of the <strong><span class="department">[Department]</span></strong> department. [<em>If applicable: Please note that <strong><span class="companyName">[Company_Name]</span></strong> is an at-will employer. That means that either you or <strong><span class="companyName">[Company_Name]</span></strong> are free to end the employment relationship at any time, with or without notice or cause</em>.]</p>
-      <p>We will be offering you an annual gross salary of <strong><span class="salary">[$X]</span></strong> and <strong><span class="bonus">[Other_Bonus]</span></strong> You will also have <strong><span class="benefits">[Other_Benefits]</span></strong> and <strong><span class="vacationDays">[Vacation_Days]</span></strong> days of paid vacation per year.<br />[<em>optional: I am attaching a letter with more details about your compensation plan</em>.]</p>
-      <p>Your expected starting date is <strong><span class="startingDate">[Starting_Date]</span></strong>. You will be asked to sign a contract of <strong><span class="contractDuration">[Contract_Duration]</span></strong> and <strong><span class="policies">[Policies]</span></strong> at the beginning of your employment.</p>
-      <p>We would like to have your response by <strong><span class="responseDate">[date]</span></strong>. In the meantime, please feel free to contact me or <strong><span class="reportManager">[Manager]</span></strong> via email or phone on <strong><span class="contactDetails">[Contact_Details]</span></strong>, should you have any questions.</p>
-      <p>We are all looking forward to having you on our team.</p>
-      <p>Best regards,</p>
-      <p><strong><span class="companyName">[Company_Name]</span></strong></p>
-      <p><strong><span id="fullname">[Template_User_Id]</span></strong></p>
-      <div id="signature">&nbsp;</div>`,
-      title: "Offer letter",
+      html:
+        `<p><span style="font-weight: 400;">EXIT INTERVIEW QUESTION</span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span><span style="font-weight: 400;"> </span></p>
+        <p>1. <span class="q1" style="font-weight: 400;">Please describe your general feelings about working here. If possible, please tell us why you are leaving.</span></p>
+        <p>2. <span class="q2" style="font-weight: 400;">What did you enjoy most about working here?</span></p>
+        <p>3. <span class="q3" style="font-weight: 400;">If you could change three things, what would they be?</span></p>
+        <p>4. <span class="q4" style="font-weight: 400;">How do you feel you were treated by your supervisor and your coworkers?&nbsp;</span></p>
+        <p>5. <span class="q5" style="font-weight: 400;">How well do you believe your work was recognized and appreciated?</span></p>
+        <p>6. <span class="q6" style="font-weight: 400;">Do you feel you were given adequate training and assistance?</span></p>
+        <p>7. <span class="q7" style="font-weight: 400;">Are there things you wish you had known earlier?</span></p>
+        <p>8. <span class="q8" style="font-weight: 400;">Do you think your work was aligned with your personal goals?</span></p>
+        <p>9. <span class="q9" style="font-weight: 400;">What can we do to make this company a better place to work?</span></p>
+        <p>10. <span class="q10" style="font-weight: 400;">What kind of tools, resources, or training would have helped you perform better?</span></p>
+        <p>11. <span class="q11" style="font-weight: 400;">Would you recommend our company to friends of yours who&rsquo;re looking for a job? Why or why not?&nbsp;</span></p>
+        <p>&nbsp;</p>`,
+      title: "Exit Interview",
       default: true,
-      type: "ON_BOARDING",
+      type: "OFF_BOARDING-EXIT_PACKAGE",
       fullname: "",
       signature: "",
       thumbnail:
         "http://api-stghrms.paxanimi.ai/api/attachments/5fa37887edc16635fad0051c/NoPath%20-%20Copy%20(12)@3x.png",
       settings: [
         {
-          key: "companyName",
-          description: "Company name",
-          value: "[Company_Name]",
-          isEdited: false,
+            isEdited: false,
+            key: "q1",
+            description: "Question 1",
+            value: "Please describe your general feelings about working here. If possible, please tell us why you are leaving."
         },
         {
-          key: "fullname",
-          description: "Candidate name",
-          value: "[Candidate_Name]",
-          isEdited: false,
+            isEdited: false,
+            key: "q2",
+            description: "Question 2",
+            value: "What did you enjoy most about working here?"
         },
         {
-          key: "jobTitle",
-          description: "Job title",
-          value: "[Job_title]",
-          isEdited: false,
+            isEdited: false,
+            key: "q3",
+            description: "Question 3",
+            value: "If you could change three things, what would they be?"
         },
         {
-          key: "classification",
-          description: "Employment Type (Full/ Part time)",
-          value: "[Employment_Type]",
-          isEdited: false,
+            isEdited: false,
+            key: "q4",
+            description: "Question 4",
+            value: "How do you feel you were treated by your supervisor and your coworkers? "
         },
         {
-          key: "workingTime",
-          description: "Mention working days and hours.",
-          value: "[Working_Time]",
-          isEdited: false,
+            isEdited: false,
+            key: "q5",
+            description: "Question 5",
+            value: "How well do you believe your work was recognized and appreciated?"
         },
         {
-          key: "department",
-          description: "Department name",
-          value: "[Department]",
-          isEdited: false,
+            isEdited: false,
+            key: "q6",
+            description: "Question 6",
+            value: "Do you feel you were given adequate training and assistance?"
         },
         {
-          key: "salary",
-          description: "Adjust salary",
-          value: "[$X]",
-          isEdited: false,
+            isEdited: false,
+            key: "q7",
+            description: "Question 7",
+            value: "Are there things you wish you had known earlier?"
         },
         {
-          key: "bonus",
-          description: "Bonus programs, if applicable",
-          value: "[Other_Bonus]",
-          isEdited: false,
+            isEdited: false,
+            key: "q8",
+            description: "Question 8",
+            value: "Do you think your work was aligned with your personal goals?"
         },
         {
-          key: "benefits",
-          description: "Include benefits",
-          value: "[Other_Benefits]",
-          isEdited: false,
+            isEdited: false,
+            key: "q9",
+            description: "Question 9",
+            value: "What can we do to make this company a better place to work?"
         },
         {
-          key: "vacationDays",
-          description: "Number of paid vacation days",
-          value: "[Vacation_Days]",
-          isEdited: false,
+            isEdited: false,
+            key: "q10",
+            description: "Question 10",
+            value: "What kind of tools, resources, or training would have helped you perform better?"
         },
         {
-          key: "startingDate",
-          description: "Starting date",
-          value: "[Starting_Date]",
-          isEdited: false,
-        },
-        {
-          key: "contractDuration",
-          description: "Contract duration",
-          value: "[Contract_Duration]",
-          isEdited: false,
-        },
-        {
-          key: "policies",
-          description:
-            "Agreements, confidentiality, nondisclosure and noncompete",
-          value: "[Policies]",
-          isEdited: false,
-        },
-        {
-          key: "responseDate",
-          description: "Response date",
-          value: "[date]",
-          isEdited: false,
-        },
-        {
-          key: "reportManager",
-          description: "Manager Name",
-          value: "[Manager]",
-          isEdited: false,
-        },
-        {
-          key: "contactDetails",
-          description: "Contact details",
-          value: "[Contact_Details]",
-          isEdited: false,
-        },
-        // {
-        //   key: "fullname",
-        //   description: "Candidate full name",
-        //   value: "[Candidate_Full_Name]",
-        //   isEdited: false,
-        // },
-        // {
-        //   key: "signature",
-        //   description: "Candidate signature",
-        //   value: "______________",
-        //   isEdited: false,
-        // },
-      ],
+            isEdited: false,
+            key: "q11",
+            description: "Question 11",
+            value: "Would you recommend our company to friends of yours who’re looking for a job? Why or why not? "
+        }
+    ]
     };
   }
 
@@ -183,7 +143,7 @@ class App extends React.Component {
               // console.log(editor);
             },
             external_plugins: {
-              "customPlugin": './',
+              customPlugin: "./",
             },
           }}
           onEditorChange={this.handleEditorChange}
